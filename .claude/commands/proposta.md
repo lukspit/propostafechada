@@ -1,6 +1,6 @@
 # Agente /proposta — Proposta Fechada
 
-Você vai conduzir uma conversa estratégica para coletar o contexto necessário e gerar uma proposta comercial em HTML — uma página que parece um site profissional, não um documento. A proposta deve passar nos três testes do CLAUDE.md: estranho, design e humanidade.
+Você vai conduzir uma conversa estratégica, coletar contexto e gerar uma proposta comercial em HTML — uma página que parece site de agência premium, não documento. A proposta passa em três testes: estranho, design e humanidade (definidos no CLAUDE.md).
 
 ---
 
@@ -8,100 +8,153 @@ Você vai conduzir uma conversa estratégica para coletar o contexto necessário
 
 Pergunte o nome do cliente para quem a proposta é destinada.
 
-Com o nome, crie imediatamente a pasta de trabalho:
+Com o nome, crie imediatamente a pasta:
 ```bash
 mkdir -p propostas/[nome-slugificado]/
 ```
 
-Exemplo: cliente "Studio Forma" → `propostas/studio-forma/`
+Exemplo: "Studio Forma Arquitetura" → `propostas/studio-forma-arquitetura/`
 
-Depois de criar a pasta, avise o usuário:
+Avise o usuário:
 
-> "Criei a pasta `propostas/[nome]/`. Se quiser enriquecer a proposta, coloque dentro dela o que tiver disponível — tudo é opcional:
-> - **Logo do seu negócio** (quem está mandando a proposta) — PNG ou SVG, fundo transparente de preferência
-> - **Logo do cliente** — se quiser personalizar ainda mais com a marca dele
-> - **Qualquer contexto adicional**: transcrição de reunião, briefing, anotações, PDF, print de conversa, o que for
+> "Criei a pasta `propostas/[nome]/`. Coloque dentro dela o que tiver disponível — tudo é opcional:
 >
-> Quanto mais contexto, melhor a proposta. Mas se não tiver nada, também funciona — é só me avisar e a gente começa."
+> - **Logo do seu negócio** (quem manda a proposta) — **obrigatório: PNG com fundo transparente**. Com fundo sólido não funciona — o elemento visual vai ficar estranho na página.
+> - **Logo do cliente** — se quiser personalizar a proposta com a marca dele. Mesma exigência: PNG com fundo transparente.
+> - **Qualquer contexto**: transcrição de reunião, briefing, anotações, PDF, print de conversa.
+>
+> Quanto mais contexto você der, melhor e mais precisa fica a proposta. Quando estiver pronto, me avise."
 
-Aguarde a confirmação. Liste os arquivos presentes na pasta e leia todo o conteúdo disponível para absorver o contexto antes de fazer perguntas.
+Aguarde confirmação. Liste os arquivos na pasta e leia todo o conteúdo disponível antes de prosseguir.
 
 ---
 
 ## Etapa 2 — Contexto de negócio
 
-Conduza uma conversa para coletar o contexto. Não apresente um formulário numerado — faça as perguntas de forma natural, em grupos pequenos, adaptando conforme as respostas.
+**Antes de fazer qualquer pergunta:** leia os arquivos `.claude/skills/estrutura-proposta.md` e `.claude/skills/gatilhos-conversao.md`. Eles vão guiar o que você precisa descobrir e como usar essas informações depois.
+
+Conduza uma conversa para coletar o contexto. Não apresente formulário numerado — perguntas naturais, em grupos de 2–3, adaptando conforme as respostas.
 
 O que precisa descobrir:
 
 **Sobre o cliente e o projeto:**
-- O que o cliente faz e quem é o cliente dele (segmento, porte, contexto)
-- Qual é o projeto ou problema específico que estão contratando — o que foi pedido e o que está por trás do que foi pedido
+- O que o cliente faz e quem é o cliente dele (segmento, porte)
+- Qual é o projeto ou problema específico que motivou a proposta — o que foi pedido e o que está por trás do que foi pedido
 - O que o cliente vai poder fazer, ter ou sentir depois que o projeto estiver entregue (transformação concreta, não serviço)
 
-**Sobre o negócios de quem está mandando a proposta:**
-- Qual é o investimento proposto e se há prazo ou urgência relevante
-- Algum cliente parecido que já atendeu, e qual foi o resultado concreto (prova social)
-- Há algum diferencial ou razão específica pela qual este cliente deveria contratar você e não outro
+**Sobre quem está mandando a proposta:**
+- Investimento proposto e se há prazo ou urgência relevante
+- Cliente parecido que já atendeu, com resultado concreto (prova social)
+- Diferencial específico: por que esse cliente deveria contratar você e não outro
 
-Se os arquivos da pasta já respondem parte dessas perguntas, não pergunte de novo — use o contexto que já tem e pergunte só o que falta.
+Se os arquivos da pasta já respondem alguma dessas perguntas, não pergunte de novo — use o que tem e pergunte só o que falta.
+
+**Regra absoluta:** nunca invente informação. Nenhum entregável, prazo, preço, depoimento ou dado que não foi fornecido. Se falta algo relevante, use um placeholder visível no HTML: `[INSERIR: depoimento de cliente similar]`. O usuário preenche depois.
 
 ---
 
 ## Etapa 3 — Direção visual
 
-Com o contexto de negócio coletado, pergunte sobre o design. Duas perguntas — diretas, sem forçar escolha entre categorias:
+**Antes de perguntar:** leia `.claude/skills/ui-ux.md` e `.claude/skills/design-visual.md`. Eles definem o padrão de qualidade visual que você precisa atingir.
 
-1. **Cores** — Quais são as cores do seu negócio? Hex codes se tiver, ou descreve ("azul escuro e dourado", "verde e branco", etc.). Se não souber, diz que vou interpretar a partir do contexto.
+Duas perguntas — sem oferecer categorias ou opções pré-definidas:
 
-2. **Referência visual** (opcional) — Tem algum site, proposta, marca ou print que você acha visualmente bonito — não importa o setor? Me manda o link ou descreve o que te atrai nele. Se não tiver referência, tudo bem — vou tomar as decisões com base no que fizer mais sentido pro contexto do negócio.
+1. **Cores do seu negócio** — Hex codes se tiver. Se não, descreve: "azul escuro e dourado", "verde e branco", etc. Se não souber, me diz e vou interpretar pelo contexto.
 
-Não ofereça opções pré-definidas de estilo. Interprete o design a partir das cores fornecidas, da referência se houver, do tom do negócio e do perfil do cliente final da proposta. A paleta de cores e o contexto do negócio já dizem muito sobre o visual certo — confie nessa leitura.
+2. **Referência visual** (opcional) — Algum site, proposta ou marca que você acha visualmente bonito? Não precisa ser do mesmo setor. Me manda o link ou descreve o que te atrai. Se não tiver referência, tudo bem.
+
+Não ofereça opções de estilo. Interprete o design a partir das cores, da referência e do contexto do negócio.
 
 ---
 
 ## Etapa 4 — Gerar a proposta
 
-Com todo o contexto coletado, gere a proposta. Antes de começar o HTML, pense:
+Antes de escrever qualquer linha:
 
-**Use as skills disponíveis como guia de raciocínio:**
-- `estrutura-proposta` → decida quais seções incluir e em que ordem, com base no porte e tipo do projeto
-- `copywriting` → escreva cada seção com o argumento certo: problema → transformação → prova → preço
-- `gatilhos-conversao` → identifique quais 2 ou 3 gatilhos são mais relevantes para esse cliente e projeto específico, e os aplique com naturalidade
-- `ui-ux` → tome as decisões visuais: tipografia, espaçamento, hierarquia, containers, CTA
-- `humanizacao` → revise cada bloco de texto antes de fechar o HTML, eliminando qualquer padrão de IA
+1. **Leia `.claude/skills/estrutura-proposta.md`** — decida quais seções incluir e em que ordem
+2. **Leia `.claude/skills/gatilhos-conversao.md`** — identifique 2–3 gatilhos relevantes para esse cliente e projeto
+3. **Leia `.claude/skills/copywriting.md`** — aplique os princípios em cada seção de texto
+4. **Leia `.claude/skills/humanizacao.md`** — antes de finalizar qualquer texto, revise eliminando padrões de IA
+5. **Leia `.claude/skills/ui-ux.md` e `.claude/skills/design-visual.md`** — tome todas as decisões visuais com base nessas referências
 
-**Sobre a logo:** referencia a logo com caminho relativo `./[nome-do-arquivo-da-logo]`. O HTML será salvo na mesma pasta, então o navegador vai encontrar o arquivo automaticamente.
+---
 
-**Sobre a paleta:** use as cores informadas como identidade visual da proposta. A cor de acento principal (marca de quem envia) deve aparecer nos CTAs, destaques de número/dado, e elementos de separação. Fundo sempre claro (branco ou off-white levemente quente) salvo se o estilo escolhido for "premium e sóbrio".
+### Regras de design — sem exceção
 
-**Sobre o HTML — mobile first, sem exceção:**
+**Emojis:** proibido. Qualquer ícone ou elemento decorativo é SVG inline ou CSS shape. Nunca emoji em página profissional.
 
-A maioria das propostas vai ser aberta no celular, enviada pelo WhatsApp. Mobile não é adaptação — é o design principal.
+**Fontes:** obrigatório usar Google Fonts. Escolha uma font com personalidade para headlines e uma limpa para corpo. Nunca Arial, Helvetica ou sans-serif genérico.
 
-- **Estrutura mobile first:** escreva o CSS pensando primeiro em tela de 375px. Use media queries para ajustar em desktop, não o contrário.
-- **Tipografia mobile:** corpo mínimo 17px, headlines proporcionais. Nada que force o usuário a pinçar para ler.
-- **Layout:** coluna única no mobile. Sem grids de 2+ colunas que quebram em tela pequena.
-- **CTAs:** botões com padding generoso (mínimo 16px vertical), fáceis de tocar com o polegar. Fixo na parte inferior se fizer sentido.
-- **Espaçamento:** seções com padding vertical de pelo menos 48px no mobile.
-- **Imagens e logos:** max-width: 100%, nunca extrapolam o container.
-- **Peso:** zero dependências externas pesadas. Google Fonts permitido (1 família, máximo 2 pesos). Nenhuma lib JS. Nenhum framework CSS.
-- **Desktop:** largura máxima do conteúdo 720px, centralizado. No desktop a proposta fica ainda melhor — mas mobile é a prioridade.
-- **Autocontida:** todo o CSS no `<style>` do head. O arquivo HTML abre direto no navegador sem depender de nada externo.
+**Seções:** nunca todas com o mesmo fundo. Alterne entre branco, off-white levemente quente, e pelo menos uma seção com fundo na cor da marca (acento suave ou versão clara).
 
-**Salve o arquivo gerado como:**
+**Elementos visuais em código:** separadores, ícones, formas decorativas — tudo em SVG inline ou CSS puro. Nenhuma imagem externa para elementos visuais.
+
+**Animações:** toda proposta tem animações de entrada. Use CSS + Intersection Observer vanilla:
+```javascript
+const observer = new IntersectionObserver(
+  (entries) => entries.forEach(e => e.isIntersecting && e.target.classList.add('visible')),
+  { threshold: 0.15 }
+);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+```
+Classe `.reveal`: `opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease;`
+Classe `.visible`: `opacity: 1; transform: translateY(0);`
+Hero element: animação de carga direta, sem observer.
+
+---
+
+### Logos — regras específicas
+
+**Logo do remetente:**
+- Só use se for PNG. Antes de incluir, avise o usuário: "Estou usando sua logo — ela precisa ter fundo transparente. Se o fundo for sólido, vai aparecer um retângulo estranho na página."
+- Tamanho mínimo: altura 100px, largura automática
+- Padding ao redor: 24px mínimo
+- Não coloque em seção com fundo que vai conflitar com a cor de fundo da logo
+
+**Logo do cliente:**
+- Mesma regra de fundo transparente
+- Se presente, aparece na seção de abertura ou numa seção de "preparado especialmente para [cliente]"
+- Tamanho visual similar à logo do remetente, nunca menor que o dela
+
+---
+
+### Layout — desktop e mobile
+
+**Mobile first no CSS.** Estilos base são para tela de 375px. Media queries expandem para desktop.
+
+**Desktop (min-width: 768px):**
+- Container de conteúdo: max-width **900px**, centralizado
+- Seções com fundo colorido: background vai full-width, conteúdo interno em container 900px
+- Hero: layout 2 colunas no desktop é bem-vindo (texto à esquerda, elemento visual à direita)
+- Nunca uma coluna fina e estreita flutuando no centro da tela — o desktop deve usar o espaço
+
+**Mobile:**
+- Coluna única
+- Fontes: headline 36–44px, corpo 17px mínimo
+- CTAs: padding vertical mínimo 16px, fáceis de tocar
+- Padding de seção: 60px vertical
+
+**Completamente autocontida:** todo CSS no `<style>` do head. Zero dependências externas além de Google Fonts. Abre no navegador sem precisar de nada.
+
+---
+
+### Salvar e entregar
+
+Salve como:
 ```
 propostas/[nome-slugificado]/proposta.html
 ```
 
-Depois de salvar, informe o usuário onde está o arquivo e que pode abrir direto no navegador para visualizar.
+Depois de salvar, informe o usuário:
+- Onde está o arquivo
+- Que pode abrir direto no navegador com dois cliques
+- Que funciona no mobile também (pode testar enviando no WhatsApp)
+- Quais placeholders `[INSERIR: ...]` ficaram na proposta para ele completar
 
 ---
 
 ## O padrão que não negocia
 
-A proposta está pronta quando passa nos três testes:
-
-1. **Estranho** — alguém que nunca ouviu falar de quem está vendendo entende em 20 segundos o problema sendo resolvido e por que essa é a pessoa certa
-2. **Design** — parece trabalho de agência premium, não documento do Word
-3. **Humanidade** — nenhuma frase soa como IA. Linguagem direta, específica, com personalidade real
+1. **Estranho** — alguém que nunca ouviu falar de quem está vendendo entende em 20 segundos o problema e por que essa é a pessoa certa
+2. **Design** — parece trabalho de agência premium. Se parece documento do Word ou geração padrão de IA, não está pronto
+3. **Humanidade** — nenhuma frase soa como IA. Direto, específico, com personalidade real
