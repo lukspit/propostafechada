@@ -49,7 +49,7 @@ O que precisa descobrir:
 
 Se os arquivos da pasta já respondem alguma dessas perguntas, não pergunte de novo — use o que tem e pergunte só o que falta.
 
-**Regra absoluta:** nunca invente informação. Nenhum entregável, prazo, preço, depoimento ou dado que não foi fornecido. Se falta algo relevante, use um placeholder visível no HTML: `[INSERIR: depoimento de cliente similar]`. O usuário preenche depois.
+**Regra absoluta:** nunca invente informação. Nenhum entregável, prazo, preço, depoimento ou dado que não foi fornecido. Se perceber que falta algo importante para gerar a proposta completa — uma prova social, o valor do investimento, um entregável específico — pergunte antes de gerar. Só inicia a geração do HTML quando tiver contexto suficiente para preencher a proposta de verdade.
 
 ---
 
@@ -145,11 +145,7 @@ Salve como:
 propostas/[nome-slugificado]/proposta.html
 ```
 
-Depois de salvar, informe o usuário:
-- Onde está o arquivo
-- Que pode abrir direto no navegador com dois cliques
-- Que funciona no mobile também (pode testar enviando no WhatsApp)
-- Quais placeholders `[INSERIR: ...]` ficaram na proposta para ele completar
+Depois de salvar, informe o usuário onde está o arquivo e que pode abrir direto no navegador com dois cliques — funciona no mobile também, pode testar enviando pelo WhatsApp.
 
 ---
 
