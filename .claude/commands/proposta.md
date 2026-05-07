@@ -80,17 +80,9 @@ Leia todas as skills antes de escrever qualquer linha:
 
 ---
 
-### Estrutura e sequência — obrigatório
+### Estrutura e sequência
 
-**O preço nunca aparece na primeira dobra.** A sequência é sempre:
-1. Problema / situação atual do cliente
-2. Transformação possível (o que muda)
-3. Como vai acontecer (entregáveis, processo)
-4. Prova (resultados anteriores, depoimento)
-5. Investimento — só aqui
-6. CTA
-
-Qualquer seção financeira no hero ou primeira dobra destrói o argumento antes de construí-lo.
+O preço raramente funciona na primeira dobra — o argumento ainda não foi construído e o número parece caro antes de fazer sentido. A sequência que geralmente converte melhor: problema → transformação → entregáveis → prova → investimento → CTA. Mas use o contexto do projeto para decidir — o que serve a esse cliente e esse momento específico.
 
 ---
 
